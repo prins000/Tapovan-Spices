@@ -69,7 +69,6 @@ export default function Process() {
                 src="https://www.youtube.com/embed/ElojFZn6q3Q?playsinline=1&rel=0" 
                 title="Bühler Sortex Spice Seed Sorting" 
                 frameBorder="0" 
-                style={{ pointerEvents: 'auto', touchAction: 'auto' }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen

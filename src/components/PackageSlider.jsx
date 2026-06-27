@@ -113,11 +113,11 @@ export default function PackageSlider() {
             {packageProducts.map((p, i) => (
               <div 
                 key={p.name} 
-                className="embla__slide flex-shrink-0 w-full sm:w-[320px] px-3"
+                className="embla__slide flex-none w-[270px] sm:w-[320px] px-3"
               >
                 {/* Full-bleed card container using the product/field image as background */}
                 <div 
-                  className="mx-auto max-w-[280px] sm:max-w-none rounded-3xl flex flex-col justify-between relative overflow-hidden aspect-[1/1.4] border border-[#C9A454]/25 shadow-lg group"
+                  className="w-full rounded-3xl flex flex-col justify-between relative overflow-hidden aspect-[1/1.4] border border-[#C9A454]/25 shadow-lg group"
                   style={{ background: '#1A1917' }}
                 >
                   {/* Full-bleed Product + Field Image */}

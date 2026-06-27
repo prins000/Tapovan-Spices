@@ -195,12 +195,17 @@ export default function InquiryCart({ onBrowseSpices }) {
                     <h3 className="text-xs font-bold uppercase tracking-widest text-[#9A8B78] border-b border-stone-200/20 pb-2">
                       Selected Products
                     </h3>
-                    <div className="space-y-4">
-                      {cart.map((item) => {
-                        return (
-                          <div
+                    <motion.div layout className="space-y-4">
+                      <AnimatePresence initial={false}>
+                        {cart.map((item) => (
+                          <motion.div
                             key={item.id}
-                            className="bg-white p-4 rounded-2xl border border-stone-200/30 shadow-sm flex gap-4 relative group"
+                            layout
+                            initial={{ opacity: 0, height: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, height: 'auto', scale: 1 }}
+                            exit={{ opacity: 0, height: 0, scale: 0.95, transition: { duration: 0.2 } }}
+                            transition={{ type: 'spring', stiffness: 500, damping: 45 }}
+                            className="bg-white p-4 rounded-2xl border border-stone-200/30 shadow-sm flex gap-4 relative group overflow-hidden"
                           >
                             <img
                               src={item.image}
@@ -281,10 +286,10 @@ export default function InquiryCart({ onBrowseSpices }) {
                                 />
                               </div>
                             </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                          </motion.div>
+                        ))}
+                      </AnimatePresence>
+                    </motion.div>
                   </div>
 
                   {/* Inquiry details */}
