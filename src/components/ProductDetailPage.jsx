@@ -51,7 +51,7 @@ const PACKAGING_SIZES = ['100g', '200g', '250g', '400g', '500g', '1kg']
 
 export default function ProductDetailPage({ product, onBack }) {
   const specs = getSpecs(product)
-  const { addToCart, sendSingleItemInquiry } = useInquiry()
+  const { addToCart, sendSingleItemInquiry, useBackup, setUseBackup } = useInquiry()
 
   // Selection states
   const [selectedPackaging, setSelectedPackaging] = useState(PACKAGING_SIZES[2]) // Default 250g
@@ -309,8 +309,33 @@ export default function ProductDetailPage({ product, onBack }) {
             </div>
           </div>
 
+          {/* WhatsApp Desk Selection Toggle */}
+          <div className="flex flex-col sm:flex-row items-center justify-between text-xs gap-2 pb-2 border-b border-stone-100">
+            <span className="text-stone-500 font-semibold">Select WhatsApp Desk:</span>
+            <div className="flex items-center gap-1 bg-stone-100 p-0.5 rounded-lg border border-stone-200/40">
+              <button
+                type="button"
+                onClick={() => setUseBackup(false)}
+                className={`px-2.5 py-1 text-[10px] font-bold rounded-md cursor-pointer border-none transition-all ${
+                  !useBackup ? 'bg-white text-[#9C7A2E] shadow-sm' : 'text-stone-500 bg-transparent hover:text-stone-700'
+                }`}
+              >
+                Primary (+91 70488 11883)
+              </button>
+              <button
+                type="button"
+                onClick={() => setUseBackup(true)}
+                className={`px-2.5 py-1 text-[10px] font-bold rounded-md cursor-pointer border-none transition-all ${
+                  useBackup ? 'bg-white text-[#9C7A2E] shadow-sm' : 'text-stone-500 bg-transparent hover:text-stone-700'
+                }`}
+              >
+                Backup (+91 97142 17705)
+              </button>
+            </div>
+          </div>
+
           {/* Primary Actions Grid */}
-          <div className="grid sm:grid-cols-2 gap-3 pt-3">
+          <div className="grid sm:grid-cols-2 gap-3 pt-2">
             <button
               type="button"
               onClick={handleAddToCart}

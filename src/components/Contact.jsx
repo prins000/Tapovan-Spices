@@ -8,7 +8,7 @@ import { useInquiry } from './InquiryContext'
 
 export default function Contact() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
-  const { openWhatsApp } = useInquiry()
+  const { openWhatsApp, setUseBackup } = useInquiry()
   const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
   const onSubmit = (data) => {
@@ -58,32 +58,46 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
           >
             {/* Primary CTA card: Chat on WhatsApp */}
-            <div 
-              className="p-6 rounded-3xl bg-white border border-[#25D366]/20 shadow-md space-y-4 text-center cursor-pointer hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-              onClick={handleQuickWhatsApp}
-            >
+            <div className="p-6 rounded-3xl bg-white border border-[#25D366]/20 shadow-md space-y-4 text-center">
               <div className="w-12 h-12 bg-[#25D366]/10 rounded-2xl flex items-center justify-center mx-auto text-[#25D366]">
                 <MessageSquare className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="font-serif text-lg font-bold text-stone-900">Chat on WhatsApp</h3>
                 <p className="text-xs text-stone-500 mt-1 leading-relaxed">
-                  Start an instant discussion with our exports and retail sales team. Average response time: &lt; 15 mins.
+                  Start an instant discussion with our export and retail sales desks. Average response time: &lt; 15 mins.
                 </p>
               </div>
-              <button 
-                type="button"
-                className="w-full py-3 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-md shadow-emerald-500/10 flex items-center justify-center gap-2 border-none transition-colors"
-              >
-                Connect on WhatsApp
-              </button>
+              <div className="space-y-2">
+                <button 
+                  type="button"
+                  onClick={() => {
+                    setUseBackup(false);
+                    setTimeout(handleQuickWhatsApp, 50);
+                  }}
+                  className="w-full py-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-md shadow-emerald-500/10 flex items-center justify-center gap-2 border-none transition-colors cursor-pointer"
+                >
+                  Connect: Primary Desk
+                </button>
+                <button 
+                  type="button"
+                  onClick={() => {
+                    setUseBackup(true);
+                    setTimeout(handleQuickWhatsApp, 50);
+                  }}
+                  className="w-full py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold uppercase tracking-wider rounded-full flex items-center justify-center gap-2 border-none transition-colors cursor-pointer"
+                >
+                  Connect: Backup Desk
+                </button>
+              </div>
             </div>
 
             {/* General Info list */}
             <div className="space-y-4">
               {[
                 { icon: Mail, label: 'Email Address', value: contactInfo.email, link: `mailto:${contactInfo.email}` },
-                { icon: Phone, label: 'Phone Call', value: contactInfo.phone, link: `tel:${contactInfo.phone}` },
+                { icon: Phone, label: 'Primary Phone / WhatsApp', value: contactInfo.phone, link: `tel:${contactInfo.phone.replace(/\s+/g, '')}` },
+                { icon: Phone, label: 'Backup WhatsApp / Phone', value: contactInfo.backupPhone, link: `tel:${contactInfo.backupPhone.replace(/\s+/g, '')}` },
                 { icon: MapPin, label: 'Registered Address', value: 'Tapovan Spices, APEDA Certified Processor, Gujarat, India', link: null },
                 { icon: Clock, label: 'Business Hours', value: 'Monday - Saturday: 9:00 AM - 6:00 PM (IST)\nSunday: Closed', link: null },
               ].map((item, i) => {

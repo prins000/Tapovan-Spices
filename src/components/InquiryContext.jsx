@@ -5,6 +5,7 @@ const InquiryContext = createContext();
 export function InquiryProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [useBackup, setUseBackup] = useState(false);
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -115,7 +116,10 @@ export function InquiryProvider({ children }) {
 
   // WhatsApp helper
   const openWhatsApp = (messageText) => {
-    const phone = '917048821883'; // From client contact info: +91 7048821883
+    const primaryPhone = '917048811883'; // +91 70488 11883
+    const backupPhone = '919714217705';  // +91 97142 17705
+    const phone = useBackup ? backupPhone : primaryPhone;
+    
     const encodedText = encodeURIComponent(messageText);
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
@@ -246,6 +250,8 @@ export function InquiryProvider({ children }) {
         sendSingleItemInquiry,
         submitCartInquiry,
         openWhatsApp,
+        useBackup,
+        setUseBackup,
       }}
     >
       {children}

@@ -17,6 +17,8 @@ export default function InquiryCart({ onBrowseSpices }) {
     clearCart,
     generateInquiryMessage,
     submitCartInquiry,
+    useBackup,
+    setUseBackup,
   } = useInquiry();
 
   const [inquiryType, setInquiryType] = useState('retail');
@@ -576,8 +578,33 @@ export default function InquiryCart({ onBrowseSpices }) {
                   </p>
                 </div>
 
+                {/* WhatsApp Desk Selection Toggle */}
+                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-stone-100">
+                  <span className="text-stone-500 font-semibold">Contact WhatsApp Desk:</span>
+                  <div className="flex items-center gap-1 bg-stone-100 p-0.5 rounded-lg border border-stone-200/40">
+                    <button
+                      type="button"
+                      onClick={() => setUseBackup(false)}
+                      className={`px-2 py-1 text-[9px] font-bold rounded-md cursor-pointer border-none transition-all ${
+                        !useBackup ? 'bg-white text-[#9C7A2E] shadow-sm' : 'text-stone-500 bg-transparent hover:text-stone-700'
+                      }`}
+                    >
+                      Primary (+91 70488 11883)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setUseBackup(true)}
+                      className={`px-2 py-1 text-[9px] font-bold rounded-md cursor-pointer border-none transition-all ${
+                        useBackup ? 'bg-white text-[#9C7A2E] shadow-sm' : 'text-stone-500 bg-transparent hover:text-stone-700'
+                      }`}
+                    >
+                      Backup (+91 97142 17705)
+                    </button>
+                  </div>
+                </div>
+
                 {/* Primary WhatsApp Action */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <div className="flex flex-col sm:flex-row gap-3 pt-1">
                   <button
                     onClick={handleSendWhatsApp}
                     className="flex-grow flex items-center justify-center gap-2 py-3 bg-[#25D366] text-white font-semibold text-xs uppercase tracking-wider rounded-full shadow-lg shadow-emerald-500/20 hover:bg-[#20ba59] transition-all transform hover:-translate-y-0.5 duration-200 cursor-pointer border-none"

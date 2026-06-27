@@ -262,7 +262,8 @@ export const certifications = [
 // Contact details from catalog
 export const contactInfo = {
   email: 'tapovanspice2401@gmail.com',
-  phone: '+91 7048821883',
+  phone: '+91 70488 11883',
+  backupPhone: '+91 97142 17705',
   website: 'tapovanspices.com',
   location: 'India',
 };
