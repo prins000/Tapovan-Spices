@@ -114,7 +114,15 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-sm font-medium mb-1.5" style={{ color: '#6B5B48' }}>Message *</label>
-                  <textarea {...register('message', { required: true })} className="input-field" rows={4} placeholder="Your requirements..." />
+                  <textarea 
+                    {...register('message', { required: true })} 
+                    className="input-field overscroll-contain" 
+                    style={{ overscrollBehavior: 'contain' }}
+                    onWheel={(e) => e.stopPropagation()}
+                    onTouchMove={(e) => e.stopPropagation()}
+                    rows={4} 
+                    placeholder="Your requirements..." 
+                  />
                   {errors.message && <p className="text-xs mt-1" style={{ color: '#8B3A2A' }}>Required</p>}
                 </div>
 

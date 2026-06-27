@@ -93,3 +93,36 @@
 
 /* Embla */
 @utility embla-container { overflow: hidden; }
+
+/* Global Section Heading System */
+.section-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 2.50rem;
+  line-height: 1.12;
+  color: var(--color-brown);
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3.50rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 4.00rem;
+  }
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-dark);
+  display: block;
+}
+

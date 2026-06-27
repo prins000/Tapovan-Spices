@@ -10,7 +10,7 @@ const links = [
   { href: '#contact', label: 'Contact' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ onHomeClick }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -20,9 +20,27 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Lock background scroll when mobile sidebar is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100vh';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+    }
+  }, [open]);
+
   const go = (href) => {
+    if (onHomeClick) onHomeClick()
     setOpen(false)
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    }, 350)
   }
 
   return (
@@ -36,13 +54,19 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-6">
           <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-20' : 'h-28'}`}>
             {/* Logo */}
-            <a href="#" className="flex items-center no-underline">
+            <button 
+              onClick={() => {
+                if (onHomeClick) onHomeClick()
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }} 
+              className="flex items-center no-underline bg-transparent border-none cursor-pointer p-0"
+            >
               <img
                 src="/logo.png"
                 alt="Tapovan Spices Logo"
                 className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${scrolled ? 'h-16' : 'h-24'}`}
               />
-            </a>
+            </button>
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-10">

@@ -18,7 +18,7 @@ export default function Certifications() {
           </motion.h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
           {certifications.map((cert, i) => (
             <motion.div
               key={cert.name}
@@ -28,10 +28,10 @@ export default function Certifications() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 + i * 0.08 }}
             >
-              <div className="font-serif text-2xl font-bold mb-2" style={{ color: '#2A1F14' }}>{cert.name}</div>
+              <div className="font-serif text-xl md:text-2xl font-bold mb-2" style={{ color: '#2A1F14' }}>{cert.name}</div>
               <p className="text-xs leading-relaxed mb-2" style={{ color: '#6B5B48' }}>{cert.fullName}</p>
               {cert.licNo && (
-                <p className="text-[0.65rem]" style={{ color: '#9A8B78' }}>{cert.licNo}</p>
+                <p className="text-[0.65rem] font-bold" style={{ color: '#9A8B78' }}>{cert.licNo}</p>
               )}
             </motion.div>
           ))}
@@ -49,7 +49,7 @@ export default function Certifications() {
             {[
               { val: '100%', label: 'Natural' },
               { val: '0', label: 'Preservatives' },
-              { val: '4', label: 'Certifications' },
+              { val: '5', label: 'Certifications' },
             ].map(s => (
               <div key={s.label} className="text-center">
                 <div className="font-serif text-3xl font-bold text-gold mb-1">{s.val}</div>

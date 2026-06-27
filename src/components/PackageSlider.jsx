@@ -59,7 +59,7 @@ export default function PackageSlider() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
-    align: 'start',
+    align: 'center',
     slidesToScroll: 1
   })
 
@@ -72,7 +72,7 @@ export default function PackageSlider() {
   }, [emblaApi])
 
   return (
-    <section ref={ref} className="py-24 md:py-32 overflow-hidden" style={{ background: '#FAF7F2' }}>
+    <section ref={ref} className="pt-10 md:pt-12 pb-6 overflow-hidden" style={{ background: '#FAF7F2' }}>
       <div className="max-w-6xl mx-auto px-6 mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
@@ -111,12 +111,11 @@ export default function PackageSlider() {
             {packageProducts.map((p, i) => (
               <div 
                 key={p.name} 
-                className="embla__slide flex-shrink-0"
-                style={{ flex: '0 0 85%', maxWidth: '300px' }}
+                className="embla__slide flex-shrink-0 w-full sm:w-[320px] px-3"
               >
                 {/* Full-bleed card container using the product/field image as background */}
                 <div 
-                  className="rounded-3xl flex flex-col justify-between relative overflow-hidden aspect-[1/1.4] border border-[#C9A454]/25 shadow-lg group"
+                  className="mx-auto max-w-[280px] sm:max-w-none rounded-3xl flex flex-col justify-between relative overflow-hidden aspect-[1/1.4] border border-[#C9A454]/25 shadow-lg group"
                   style={{ background: '#1A1917' }}
                 >
                   {/* Full-bleed Product + Field Image */}

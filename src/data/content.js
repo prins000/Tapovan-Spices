@@ -181,7 +181,7 @@ export const products = [
     nameHindi: 'Til',
     category: 'Seeds',
     description: 'Natural | Nutritious | High Quality',
-    image: '/products/soyabean-whole-and-selected-soyabeans.jpeg',
+    image: '/products/sesame-seed.jpeg',
   },
   {
     id: 21,
@@ -244,19 +244,19 @@ export const processSteps = [
 // Why Choose - from catalog card c4
 export const whyChoose = [
   { title: 'Premium Quality Spices', description: 'Carefully selected premium quality spices from India\'s finest growing regions.' },
-  { title: 'Hygienically Processed', description: 'Hygienically processed & packed using modern food-safe methods.' },
-  { title: 'Authentic Taste', description: 'Authentic taste & natural goodness in every pack — no compromise.' },
-  { title: 'Direct Sourcing', description: 'We work closely with farmers and cooperatives, ensuring fair wages and sustainable practices.' },
-  { title: 'Small-Batch Milling', description: 'Processing in small batches to lock in the aroma, color, and potency.' },
-  { title: 'Transparency', description: 'From the soil to the jar, we want you to know exactly where your ingredients come from.' },
+  { title: 'Hygienically Processed', description: 'Hygienically processed & packed using modern automated food-safe methods.' },
+  { title: 'Authentic Taste', description: 'Authentic taste & natural goodness in every single pack — no compromise.' },
+  { title: 'Trusted Worldwide', description: 'Consistently trusted by grocery chains, importers, and retail customers globally.' },
+  { title: 'Export Quality Assured', description: 'Processing and packaging conform to strict international food safety guidelines.' },
 ];
 
 // Certifications from catalog
 export const certifications = [
   { name: 'FSSAI', fullName: 'Food Safety & Standards Authority of India', licNo: 'Lic No. 22220004000156' },
-  { name: 'ISO 9001:2015', fullName: 'International Organization for Standardization' },
-  { name: 'HACCP', fullName: 'Hazard Analysis Critical Control Point — Certified' },
-  { name: 'APEDA', fullName: 'Agricultural & Processed Food Products Export — Registered' },
+  { name: 'ISO 9001:2015', fullName: 'Certified Quality Management System' },
+  { name: 'ISO 22000:2018', fullName: 'Certified Food Safety Management System' },
+  { name: 'HACCP', fullName: 'Certified Hazard Analysis Critical Control Point' },
+  { name: 'APEDA', fullName: 'Registered Agricultural & Processed Food Products Export Development Authority' },
 ];
 
 // Contact details from catalog
