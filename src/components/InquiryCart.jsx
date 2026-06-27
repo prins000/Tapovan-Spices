@@ -138,28 +138,28 @@ export default function InquiryCart({ onBrowseSpices }) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ willChange: 'transform' }}
           >
             {/* Header */}
             <div className="p-6 border-b border-stone-200/40 flex items-center justify-between bg-white bg-opacity-95">
               <div className="flex items-center gap-2.5">
-                <ClipboardList className="text-[#9C7A2E] w-5 h-5" />
-                <h2 className="font-serif text-xl font-bold text-[#2A1F14]">Inquiry Cart</h2>
-                <span className="bg-[#9C7A2E]/10 text-[#9C7A2E] text-xs font-semibold px-2 py-0.5 rounded-full">
+                <ClipboardList className="text-[#9C7A2E] w-5 h-5 flex-shrink-0" />
+                <h2 className="font-serif text-xl font-bold text-[#2A1F14] whitespace-nowrap">Inquiry Cart</h2>
+                <span className="bg-[#9C7A2E]/10 text-[#9C7A2E] text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">
                   {cart.reduce((sum, item) => sum + item.quantity, 0)} items
                 </span>
               </div>
-              <div className="flex items-center gap-4">
-                {cart.length > 0 && (
-                  <button
-                    onClick={clearCart}
-                    className="text-xs font-semibold uppercase tracking-wider text-rose-600 hover:text-rose-800 transition-colors cursor-pointer bg-transparent border-none"
-                  >
-                    Clear All
-                  </button>
-                )}
+              <div className="flex items-center gap-4 flex-shrink-0">
+                <button
+                  onClick={clearCart}
+                  className="text-xs font-semibold uppercase tracking-wider text-rose-600 hover:text-rose-800 transition-colors cursor-pointer bg-transparent border-none"
+                  style={{ visibility: cart.length > 0 ? 'visible' : 'hidden' }}
+                >
+                  Clear All
+                </button>
                 <button
                   onClick={() => setIsCartOpen(false)}
-                  className="p-1.5 rounded-full bg-stone-100 hover:bg-stone-200 transition-colors text-stone-600 cursor-pointer border-none"
+                  className="p-1.5 rounded-full bg-stone-100 hover:bg-stone-200 transition-colors text-stone-600 cursor-pointer border-none flex-shrink-0"
                 >
                   <X className="w-5 h-5" />
                 </button>
