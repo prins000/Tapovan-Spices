@@ -33,16 +33,15 @@ export default function ExportMarkets() {
           {exportMarkets.map((m, i) => (
             <motion.div
               key={m.country}
-              className="flex items-center gap-4 p-5 rounded-xl"
+              className="p-5 rounded-xl text-center"
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(201,164,84,0.15)' }}
               initial={{ opacity: 0, y: 15 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 + i * 0.06 }}
             >
-              <span className="text-3xl">{m.flag}</span>
               <div>
                 <div className="font-serif font-bold text-base" style={{ color: '#FAF7F2' }}>{m.country}</div>
-                <div className="text-xs" style={{ color: '#9A8B78' }}>{m.region}</div>
+                <div className="text-xs mt-1" style={{ color: '#9A8B78' }}>{m.region}</div>
               </div>
             </motion.div>
           ))}

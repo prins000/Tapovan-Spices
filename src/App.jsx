@@ -35,11 +35,13 @@ function App() {
               setTimeout(() => {
                 const element = document.getElementById('products');
                 if (element) {
-                  const yOffset = -90; // offset for fixed navbar
+                  element.scrollIntoView({ behavior: 'smooth' });
+                  // Exact pixel fallback
+                  const yOffset = -90;
                   const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
                   window.scrollTo({ top: y, behavior: 'smooth' });
                 }
-              }, 400)
+              }, 300)
             }} 
           />
         ) : (

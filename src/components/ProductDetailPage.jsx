@@ -40,7 +40,7 @@ export default function ProductDetailPage({ product, onBack }) {
     company: '',
     email: '',
     phone: '',
-    message: `Dear Tapovan Spices Export Team,\n\nI am interested in importing ${product.name} (${product.subtitle}). Please share the pricing details, packaging specifications, and MOQ for importing to my country.\n\nThank you.`
+    message: `Dear Tapovan Spices Team,\n\nI am interested in ordering ${product.name} (${product.subtitle}). Please share the pricing details for packet sizes (we offer 200g, 250g, 400g, 500g, 1kg) and shipping options to my location.\n\nThank you.`
   })
   const [sent, setSent] = useState(false)
 
@@ -85,7 +85,7 @@ export default function ProductDetailPage({ product, onBack }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.25 }}
       className="min-h-screen bg-[#FAF7F2] pt-28 pb-20"
     >
       <div className="max-w-6xl mx-auto px-6">
@@ -202,8 +202,8 @@ export default function ProductDetailPage({ product, onBack }) {
 
         {/* Bottom Section: Horizontally Centered Inquiry Form */}
         <div className="max-w-2xl mx-auto mt-16 bg-white p-8 md:p-10 rounded-3xl border border-stone-200/30 shadow-md">
-          <h3 className="font-serif text-xl font-bold mb-2 text-[#2A1F14] text-center">Send Export Inquiry</h3>
-          <p className="text-xs text-stone-500 mb-8 text-center">Direct quote and packaging specifications will be shared via email within 24 hours.</p>
+          <h3 className="font-serif text-xl font-bold mb-2 text-[#2A1F14] text-center">Send Product Inquiry</h3>
+          <p className="text-xs text-stone-500 mb-8 text-center">Ask for pricing or specify your preferred packet size (200g - 1kg or bulk export).</p>
           
           {sent ? (
             <div className="text-center py-8">
@@ -226,7 +226,7 @@ export default function ProductDetailPage({ product, onBack }) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold mb-1 text-stone-600">Company Name</label>
+                  <label className="block text-xs font-semibold mb-1 text-stone-600">Company Name (Optional)</label>
                   <input 
                     type="text" 
                     value={formData.company}

@@ -220,15 +220,15 @@ export const exportMarkets = [
   { country: 'Latin America', flag: '🌎', region: 'Americas' },
 ];
 
-// Export details from catalog
+// Export & domestic order details
 export const exportDetails = [
   { label: 'Country of Origin', value: 'India' },
-  { label: 'MOQ', value: '20 KG' },
-  { label: 'Packing Sizes', value: '100g | 200g | 250g | 400g | 1kg & Custom' },
-  { label: 'Packaging', value: 'High Quality, Food Grade Pouches & Bulk' },
-  { label: 'Payment Terms', value: 'T/T, L/C, Western Union' },
-  { label: 'Delivery Time', value: '7-15 Days after Order Confirmation' },
-  { label: 'Shipping', value: 'By Sea | By Air | Door to Door' },
+  { label: 'Retail Packs', value: '200g | 250g | 400g | 500g | 1kg' },
+  { label: 'Bulk Options', value: '20 KG Bags & Custom Cartons' },
+  { label: 'Packaging', value: 'Food-Grade Aroma-Lock Standing Pouches' },
+  { label: 'Order Placement', value: 'Form Inquiry / Direct WhatsApp Order' },
+  { label: 'Payment Methods', value: 'COD | UPI | Bank Transfer | L/C' },
+  { label: 'Delivery Area', value: 'Domestic (All India) & Global Export' },
 ];
 
 // Process steps
@@ -297,34 +297,34 @@ export const faqs = [
   },
   {
     q: 'What are the minimum order quantities?',
-    a: 'Our MOQ is 20 KG. For retail packaging (100g–1kg), minimum orders start from 500 units per SKU. Please contact us for customized quotes.',
+    a: 'For domestic and local orders, you can purchase single packets ranging from 200g to 1kg. For commercial export orders, our minimum order quantity starts from 20 KG. We accommodate both local retail buyers and international bulk buyers.',
   },
   {
     q: 'What packaging options are available?',
-    a: 'We offer high quality, food grade pouches and bulk packaging. Available sizes: 100g, 200g, 250g, 400g, 1kg, and as per customer requirement. Customized packaging is also available.',
+    a: 'We offer food-grade standing pouches for retail sizes (200g–1kg) and large HDPE bags for bulk commercial orders. Custom labeling and private packaging are also supported.',
   },
   {
     q: 'What countries do you export to?',
-    a: 'We export to Malaysia, European Countries, USA, Saudi Arabia, Dubai, Latin America and more. We are open to new markets.',
+    a: 'We serve customers across India (domestic retail) and export commercially to Malaysia, European Countries, USA, Saudi Arabia, Dubai, Latin America, and more.',
   },
   {
-    q: 'What are the payment and shipping terms?',
-    a: 'Payment: T/T, L/C, Western Union (as per mutual agreement). Shipping: By Sea or By Air, Door to Door. Delivery time: 7-15 days after order confirmation.',
+    q: 'How can I place an order and pay?',
+    a: 'You can submit an inquiry through our product forms, or contact us directly on WhatsApp. There is no direct online payment gateway on the website to keep ordering simple. For local orders, we accept UPI, COD, and bank transfer. For export orders, we accept T/T, L/C, or mutual bank transfer.',
   },
   {
     q: 'Are your products free from additives?',
-    a: 'Yes. All Tapovan Spices products are 100% natural with no artificial colors, preservatives, or additives.',
+    a: 'Yes. All Tapovan Spices products are 100% natural, sorted to 99.9% purity via optical AI sensors, with zero added colors, preservatives, or artificial additives.',
   },
 ];
 
 export const recipes = [
   {
     id: 1,
-    title: 'Royal Chicken Biryani',
-    description: 'A fragrant, layered rice dish infused with Cumin Seeds, Chilli Powder, and Turmeric Powder.',
-    image: '/recipe-biryani.png',
-    difficulty: 'Medium',
-    time: '45 Mins',
+    title: 'Traditional Gujarati Dal',
+    description: 'A sweet and sour lentil soup seasoned with Cumin, Chilli Powder, and Turmeric Powder, cooked to Gujarati perfection.',
+    image: '/recipe-dal.png',
+    difficulty: 'Easy',
+    time: '25 Mins',
     spices: ['Cumin Seed', 'Chilli Powder', 'Turmeric Powder']
   },
   {

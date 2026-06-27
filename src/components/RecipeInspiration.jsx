@@ -108,7 +108,7 @@ export default function RecipeInspiration() {
                 </p>
 
                 {/* Spice Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
+                <div className="flex flex-wrap gap-1.5">
                   {recipe.spices.map(spice => (
                     <span
                       key={spice}
@@ -119,15 +119,6 @@ export default function RecipeInspiration() {
                     </span>
                   ))}
                 </div>
-
-                {/* CTA */}
-                <motion.div
-                  className="flex items-center gap-1 text-sm font-semibold"
-                  style={{ color: '#C9A454' }}
-                  whileHover={{ x: 4 }}
-                >
-                  View Recipe <ArrowRight size={14} />
-                </motion.div>
               </div>
             </motion.div>
           ))}
