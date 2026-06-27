@@ -32,7 +32,7 @@ export default function About() {
             transition={{ duration: 0.7 }}
           >
             <div className="rounded-2xl overflow-hidden aspect-[4/3]" style={{ boxShadow: '0 8px 40px rgba(42,31,20,0.12)' }}>
-              <img src="/about-farm.png" alt="Tapovan Spices - Direct Sourcing" className="w-full h-full object-cover" loading="lazy" />
+              <img src="/spices-branding.png" alt="Tapovan Spices - Premium Indian Spices" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </motion.div>
 

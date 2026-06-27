@@ -69,6 +69,11 @@ export default function Navbar({ onHomeClick }) {
                 src="/logo.png"
                 alt="Tapovan Spices Logo"
                 className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${scrolled ? 'h-16' : 'h-24'}`}
+                style={{
+                  filter: scrolled
+                    ? 'none'
+                    : 'drop-shadow(0 2px 8px rgba(0,0,0,0.75)) drop-shadow(0 0px 16px rgba(0,0,0,0.5))',
+                }}
               />
             </button>
 
@@ -78,10 +83,14 @@ export default function Navbar({ onHomeClick }) {
                 <button
                   key={l.href}
                   onClick={() => go(l.href)}
-                  className="font-sans text-[0.8125rem] font-medium bg-transparent border-none cursor-pointer transition-colors duration-200"
-                  style={{ color: '#6B5B48' }}
-                  onMouseEnter={e => e.target.style.color = '#9C7A2E'}
-                  onMouseLeave={e => e.target.style.color = '#6B5B48'}
+                  className="font-sans text-[0.8125rem] font-medium bg-transparent border-none cursor-pointer transition-all duration-300"
+                  style={{
+                    color: scrolled ? '#6B5B48' : '#FFFFFF',
+                    textShadow: scrolled ? 'none' : '0 1px 6px rgba(0,0,0,0.7)',
+                    letterSpacing: '0.04em',
+                  }}
+                  onMouseEnter={e => { e.target.style.color = scrolled ? '#9C7A2E' : '#E2C47A' }}
+                  onMouseLeave={e => { e.target.style.color = scrolled ? '#6B5B48' : '#FFFFFF' }}
                 >
                   {l.label}
                 </button>
@@ -91,8 +100,12 @@ export default function Navbar({ onHomeClick }) {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="relative p-2.5 rounded-full hover:bg-stone-100/60 transition-colors cursor-pointer border-none bg-transparent text-stone-700 flex items-center justify-center"
+                className="relative p-2.5 rounded-full transition-colors cursor-pointer border-none bg-transparent flex items-center justify-center"
                 title="View Inquiry Cart"
+                style={{
+                  color: scrolled ? '#44403c' : '#FFFFFF',
+                  filter: scrolled ? 'none' : 'drop-shadow(0 1px 4px rgba(0,0,0,0.7))',
+                }}
               >
                 <ClipboardList size={22} />
                 {totalItems > 0 && (
@@ -106,7 +119,14 @@ export default function Navbar({ onHomeClick }) {
                 Get Quote
               </button>
 
-              <button className="md:hidden p-2 bg-transparent border-none cursor-pointer" onClick={() => setOpen(!open)} style={{ color: '#2A1F14' }}>
+              <button
+                className="md:hidden p-2 bg-transparent border-none cursor-pointer"
+                onClick={() => setOpen(!open)}
+                style={{
+                  color: scrolled ? '#2A1F14' : '#FFFFFF',
+                  filter: scrolled ? 'none' : 'drop-shadow(0 1px 4px rgba(0,0,0,0.7))',
+                }}
+              >
                 {open ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>

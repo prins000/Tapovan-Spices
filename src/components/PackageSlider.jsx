@@ -56,49 +56,16 @@ const packageProducts = [
 function ProductCard({ p }) {
   return (
     <div
-      className="flex-shrink-0 rounded-3xl flex flex-col justify-between relative overflow-hidden border border-[#C9A454]/25"
-      style={{ background: '#1A1917', aspectRatio: '1 / 1.4', width: '240px' }}
+      className="flex-shrink-0 rounded-3xl overflow-hidden"
+      style={{ aspectRatio: '1 / 1.4', width: '240px' }}
     >
-      {/* Full-bleed Product Image */}
+      {/* Full-bleed Product Image — no overlays, no text */}
       <img
         src={p.image}
         alt={p.name}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="w-full h-full object-cover"
         loading="lazy"
       />
-
-      {/* Gradient overlays */}
-      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/60 via-black/20 to-transparent pointer-events-none z-10" />
-      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none z-10" />
-
-      {/* Shiny laminate effect */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none z-10" />
-
-      {/* Brand Logo + Badge */}
-      <div className="flex justify-between items-center z-20 p-5">
-        <img
-          src="/logo.png"
-          alt="Tapovan Spices"
-          className="h-7 w-auto object-contain"
-          style={{ filter: 'invert(1) brightness(1.8)' }}
-        />
-        <span className="px-2.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-black/50 text-[#E2C47A] border border-[#C9A454]/30">
-          {p.badge}
-        </span>
-      </div>
-
-      {/* Spacer */}
-      <div className="flex-grow z-10" />
-
-      {/* Caption */}
-      <div className="text-center z-20 p-5">
-        <h3 className="font-serif text-lg font-bold tracking-wider text-[#E2C47A] mb-0.5 drop-shadow-md">{p.name}</h3>
-        <p className="text-[8px] text-[#FAF7F2] tracking-[0.2em] uppercase font-sans mb-1 drop-shadow-sm">{p.subtitle}</p>
-        <p className="text-[7px] text-[#9A8B78] uppercase tracking-widest mb-3 drop-shadow-sm">FROM INDIA TO THE WORLD</p>
-        <div className="text-[7px] text-[#E2C47A] border-t border-[#C9A454]/30 pt-2.5 tracking-widest uppercase font-sans drop-shadow-sm">
-          {p.tagline}
-        </div>
-      </div>
     </div>
   )
 }
@@ -116,7 +83,7 @@ export default function PackageSlider() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
             >
-              Packaging Showcase
+              Our Products
             </motion.p>
             <motion.h2
               className="section-title"
@@ -124,7 +91,7 @@ export default function PackageSlider() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 }}
             >
-              Our Signature <span className="text-gold">Pouch Series</span>
+              Our <span className="text-gold">Premium Collection</span>
             </motion.h2>
           </div>
           <motion.p
@@ -134,7 +101,7 @@ export default function PackageSlider() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            A look at our premium export packaging pouches. Designed to preserve natural oils, color, and intense flavor.
+            Discover our range of premium Indian spices and products. Carefully sourced, hygienically processed, and export-ready.
           </motion.p>
         </div>
       </div>
