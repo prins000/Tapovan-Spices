@@ -316,3 +316,33 @@ export const faqs = [
     a: 'Yes. All Tapovan Spices products are 100% natural with no artificial colors, preservatives, or additives.',
   },
 ];
+
+export const recipes = [
+  {
+    id: 1,
+    title: 'Royal Chicken Biryani',
+    description: 'A fragrant, layered rice dish infused with Cumin Seeds, Chilli Powder, and Turmeric Powder.',
+    image: '/recipe-biryani.png',
+    difficulty: 'Medium',
+    time: '45 Mins',
+    spices: ['Cumin Seed', 'Chilli Powder', 'Turmeric Powder']
+  },
+  {
+    id: 2,
+    title: 'Premium Paneer Curry',
+    description: 'A creamy, spiced tomato-based curry featuring freshly ground Coriander Powder and Turmeric.',
+    image: '/recipe-curry.png',
+    difficulty: 'Easy',
+    time: '30 Mins',
+    spices: ['Coriander Powder', 'Turmeric Powder']
+  },
+  {
+    id: 3,
+    title: 'Spiced Masala Chai',
+    description: 'A warming traditional tea brewed with whole Carom Seeds (Ajwain) and secret spices.',
+    image: '/recipe-chai.png',
+    difficulty: 'Easy',
+    time: '15 Mins',
+    spices: ['Carom Seeds']
+  }
+];

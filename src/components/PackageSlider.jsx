@@ -5,52 +5,53 @@ import useEmblaCarousel from 'embla-carousel-react'
 
 const packageProducts = [
   {
-    name: 'CUMIN SEED',
-    subtitle: 'WHOLE CUMIN SEEDS',
-    hindi: 'JEERA',
-    tagline: 'Rich Aroma | Premium Quality | 100% Natural',
-    image: '/products/cumin-seed.jpeg',
-    pouchColor: '#1A1917', // Elegant matte charcoal black
+    name: 'CAROM SEEDS',
+    subtitle: 'AJWAIN',
+    tagline: 'Aromatic | Medicinal | 100% Natural',
+    image: '/products/carom-seeds-ajwain.jpeg',
+    badge: 'Premium Grade'
   },
   {
-    name: 'TURMERIC POWDER',
-    subtitle: 'HALDI POWDER',
-    hindi: 'HALDI',
+    name: 'CUMIN SEED',
+    subtitle: 'WHOLE CUMIN SEEDS',
+    tagline: 'Rich Aroma | Premium Quality | 100% Natural',
+    image: '/products/cumin-seed.jpeg',
+    badge: '99.5% Purity'
+  },
+  {
+    name: 'TURMERIC',
+    subtitle: 'SELECTED TURMERIC FINGERS',
     tagline: 'Pure | Natural | Rich in Curcumin',
     image: '/products/turmeric.jpeg',
-    pouchColor: '#1A1917',
+    badge: 'High Curcumin'
   },
   {
     name: 'CHILLI POWDER',
     subtitle: 'RED CHILLI POWDER',
-    hindi: 'LAL MIRCH',
     tagline: 'Bold Heat | Vibrant Color | Pure & Fresh',
     image: '/products/chilli-powder.jpeg',
-    pouchColor: '#1A1917',
+    badge: '100% Natural'
   },
   {
     name: 'BIG MUSTARD SEED',
     subtitle: 'WHOLE BIG MUSTARD SEEDS',
-    hindi: 'RAI',
     tagline: 'High Quality | Strong Aroma | 100% Natural',
     image: '/products/big-mustard-seed.jpeg',
-    pouchColor: '#1A1917',
+    badge: 'Machine Cleaned'
   },
   {
     name: 'CORIANDER SEED',
     subtitle: 'WHOLE CORIANDER SEEDS',
-    hindi: 'DHANIYA',
     tagline: 'Fresh | Cleaned | Superior Quality',
     image: '/products/coriander-whole-seeds.jpeg',
-    pouchColor: '#1A1917',
+    badge: 'Sortex Quality'
   },
   {
     name: 'FENNEL SEED',
     subtitle: 'ANISEED / SAUNF',
-    hindi: 'SAUNF',
     tagline: 'Sweet Aroma | Digestive | Premium Quality',
     image: '/products/fennel-seed.jpeg',
-    pouchColor: '#1A1917',
+    badge: 'Aromatic Grade'
   }
 ]
 
@@ -80,7 +81,7 @@ export default function PackageSlider() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
             >
-              Packaging Design
+              Packaging Showcase
             </motion.p>
             <motion.h2 
               className="section-title"
@@ -98,7 +99,7 @@ export default function PackageSlider() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            A virtual showcase of our premium export-ready packages. Designed to preserve natural oils, color, and intense flavor.
+            A look at our premium export packaging pouches. Designed to preserve natural oils, color, and intense flavor.
           </motion.p>
         </div>
       </div>
@@ -113,61 +114,53 @@ export default function PackageSlider() {
                 className="embla__slide flex-shrink-0"
                 style={{ flex: '0 0 85%', maxWidth: '300px' }}
               >
-                {/* Virtual stand-up pouch container mimicking catalog style */}
+                {/* Full-bleed card container using the product/field image as background */}
                 <div 
-                  className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden aspect-[1/1.5] border-2 border-[#C9A454]/25 shadow-lg group"
-                  style={{ 
-                    background: p.pouchColor,
-                  }}
+                  className="rounded-3xl flex flex-col justify-between relative overflow-hidden aspect-[1/1.4] border border-[#C9A454]/25 shadow-lg group"
+                  style={{ background: '#1A1917' }}
                 >
-                  {/* Subtle Gold Botanical Line Art (CSS generated leaf motifs) */}
-                  <div className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-screen"
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M10 30 C 20 20, 40 20, 50 40 C 40 50, 20 50, 10 30 Z M50 40 C 60 20, 80 20, 90 30 C 90 50, 70 50, 50 40 Z M50 40 L 50 90' stroke='%23C9A454' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
-                      backgroundSize: '120px 120px'
-                    }}
+                  {/* Full-bleed Product + Field Image */}
+                  <img 
+                    src={p.image} 
+                    alt={p.name}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Shiny laminate packaging effect */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none" />
+                  {/* Gradient overlays for high text readability */}
+                  <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/60 via-black/20 to-transparent pointer-events-none z-10" />
+                  <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none z-10" />
 
-                  {/* Brand Monogram Crest */}
-                  <div className="text-center z-10">
-                    <div className="w-12 h-12 rounded-full border-2 border-[#C9A454] flex flex-col items-center justify-center mx-auto mb-2 bg-[#1A1917]">
-                      <span className="text-[#C9A454] font-serif text-sm font-bold tracking-tighter">T</span>
-                      <span className="text-[#C9A454] font-serif text-[8px] font-bold mt-[-4px] tracking-tighter">S</span>
-                    </div>
-                    
-                    <div className="text-[10px] tracking-[0.25em] font-serif uppercase text-[#E2C47A]">TAPOVAN</div>
-                    <div className="text-[6px] tracking-[0.35em] text-[#C9A454] uppercase font-sans mt-0.5">── SPICES ──</div>
-                  </div>
+                  {/* Shiny laminate packaging reflection effect */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none z-10" />
 
-                  {/* Round Window / Ingredient Photo Frame */}
-                  <div className="relative my-4 aspect-square w-40 mx-auto rounded-full overflow-hidden border-2 border-[#C9A454]/50 z-10 bg-white/5 shadow-inner">
+                  {/* Official Brand Logo */}
+                  <div className="flex justify-between items-center z-20 p-6">
                     <img 
-                      src={p.image} 
-                      alt={p.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      src="/logo.png" 
+                      alt="Tapovan Spices" 
+                      className="h-7 w-auto object-contain"
+                      style={{ filter: 'invert(1) brightness(1.8)' }}
                     />
                     
-                    {/* Shadow overlay to make it look like a window cutout */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1917]/80 via-transparent to-transparent opacity-60" />
+                    <span className="px-2.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-black/40 text-[#E2C47A] border border-[#C9A454]/30 backdrop-blur-sm">
+                      {p.badge}
+                    </span>
                   </div>
 
-                  {/* Package Typography & Label */}
-                  <div className="text-center z-10">
-                    <h3 className="font-serif text-lg font-bold tracking-wider text-[#E2C47A] mb-0.5">{p.name}</h3>
-                    <p className="text-[8px] text-[#FAF7F2] tracking-[0.2em] uppercase font-sans mb-1">{p.subtitle}</p>
-                    <p className="text-[7px] text-[#9A8B78] uppercase tracking-widest mb-4">FROM INDIA TO THE WORLD</p>
+                  {/* Empty middle space so the printed pouch in the image remains fully visible */}
+                  <div className="flex-grow z-10" />
+
+                  {/* Package Typography Caption Overlay */}
+                  <div className="text-center z-20 p-6">
+                    <h3 className="font-serif text-lg font-bold tracking-wider text-[#E2C47A] mb-0.5 drop-shadow-md">{p.name}</h3>
+                    <p className="text-[8px] text-[#FAF7F2] tracking-[0.2em] uppercase font-sans mb-1 drop-shadow-sm">{p.subtitle}</p>
+                    <p className="text-[7px] text-[#9A8B78] uppercase tracking-widest mb-3 drop-shadow-sm">FROM INDIA TO THE WORLD</p>
                     
-                    {/* Pouch bottom specs */}
-                    <div className="text-[6px] text-[#E2C47A] border-t border-[#C9A454]/30 pt-2 tracking-widest uppercase font-sans">
+                    {/* Bottom spec bar */}
+                    <div className="text-[7px] text-[#E2C47A] border-t border-[#C9A454]/30 pt-2.5 tracking-widest uppercase font-sans drop-shadow-sm">
                       {p.tagline}
                     </div>
                   </div>
-
-                  {/* Seal Line */}
-                  <div className="absolute bottom-1.5 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-[#C9A454]/30 to-transparent" />
                 </div>
               </div>
             ))}

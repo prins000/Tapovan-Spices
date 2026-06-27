@@ -3,7 +3,6 @@ import Hero from './components/Hero'
 import TrustStrip from './components/TrustStrip'
 import About from './components/About'
 import WhyChoose from './components/WhyChoose'
-import ProductSlider from './components/ProductSlider'
 import PackageSlider from './components/PackageSlider'
 import ProductCategories from './components/ProductCategories'
 import ExportMarkets from './components/ExportMarkets'
@@ -25,7 +24,6 @@ function App() {
         <TrustStrip />
         <About />
         <WhyChoose />
-        <ProductSlider />
         <PackageSlider />
         <ProductCategories />
         <ExportMarkets />
