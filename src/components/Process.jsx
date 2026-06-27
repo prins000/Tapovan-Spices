@@ -60,7 +60,10 @@ export default function Process() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200 bg-black aspect-video">
+            <div 
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200 bg-black aspect-video"
+              style={{ transform: 'translateZ(0)', WebkitTransform: 'translateZ(0)', isolation: 'isolate' }}
+            >
               <iframe 
                 className="absolute inset-0 w-full h-full"
                 src="https://www.youtube.com/embed/ElojFZn6q3Q?playsinline=1&rel=0" 
@@ -68,6 +71,7 @@ export default function Process() {
                 frameBorder="0" 
                 style={{ pointerEvents: 'auto', touchAction: 'auto' }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
             </div>

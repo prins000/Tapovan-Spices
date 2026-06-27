@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import useEmblaCarousel from 'embla-carousel-react'
+import AutoScroll from 'embla-carousel-auto-scroll'
 
 const packageProducts = [
   {
@@ -57,19 +57,21 @@ const packageProducts = [
 
 export default function PackageSlider() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: 'center',
-    slidesToScroll: 1
-  })
-
-  useEffect(() => {
-    if (!emblaApi) return
-    const interval = setInterval(() => {
-      emblaApi.scrollNext()
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [emblaApi])
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: 'center',
+      slidesToScroll: 1,
+    },
+    [
+      AutoScroll({
+        speed: 1.4,
+        stopOnInteraction: false,
+        stopOnMouseEnter: false,
+        stopOnFocusIn: false
+      })
+    ]
+  )
 
   return (
     <section ref={ref} className="pt-10 md:pt-12 pb-6 overflow-hidden" style={{ background: '#FAF7F2' }}>
@@ -106,8 +108,8 @@ export default function PackageSlider() {
 
       {/* Infinite Autoplay Slider */}
       <div className="px-6 md:px-12">
-        <div className="embla" ref={emblaRef}>
-          <div className="embla__container flex gap-6">
+        <div className="embla" ref={emblaRef} style={{ overflow: 'hidden' }}>
+          <div className="embla__container flex">
             {packageProducts.map((p, i) => (
               <div 
                 key={p.name} 
