@@ -60,15 +60,16 @@ export default function PackageSlider() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      align: 'center',
-      slidesToScroll: 1,
+      align: 'start',
+      dragFree: true,
     },
     [
       AutoScroll({
-        speed: 1.4,
+        speed: 1,
         stopOnInteraction: false,
         stopOnMouseEnter: false,
-        stopOnFocusIn: false
+        stopOnFocusIn: false,
+        startDelay: 0,
       })
     ]
   )
@@ -107,24 +108,33 @@ export default function PackageSlider() {
       </div>
 
       {/* Infinite Autoplay Slider */}
-      <div className="px-6 md:px-12">
-        <div className="embla" ref={emblaRef} style={{ overflow: 'hidden' }}>
-          <div className="embla__container flex">
+      <div className="px-0">
+        <div
+          className="embla"
+          ref={emblaRef}
+          style={{ overflow: 'hidden' }}
+        >
+          <div
+            className="embla__container flex"
+            style={{ willChange: 'transform' }}
+          >
             {packageProducts.map((p, i) => (
-              <div 
-                key={p.name} 
-                className="embla__slide flex-none w-[270px] sm:w-[320px] px-3"
+              <div
+                key={p.name}
+                className="embla__slide flex-shrink-0"
+                style={{ width: '260px', paddingLeft: '12px', paddingRight: '12px' }}
               >
                 {/* Full-bleed card container using the product/field image as background */}
-                <div 
-                  className="w-full rounded-3xl flex flex-col justify-between relative overflow-hidden aspect-[1/1.4] border border-[#C9A454]/25 shadow-lg group"
-                  style={{ background: '#1A1917' }}
+                <div
+                  className="rounded-3xl flex flex-col justify-between relative overflow-hidden border border-[#C9A454]/25 group"
+                  style={{ background: '#1A1917', aspectRatio: '1 / 1.4', willChange: 'transform' }}
                 >
                   {/* Full-bleed Product + Field Image */}
-                  <img 
-                    src={p.image} 
+                  <img
+                    src={p.image}
                     alt={p.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
                   />
 
                   {/* Gradient overlays for high text readability */}
@@ -135,15 +145,14 @@ export default function PackageSlider() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none z-10" />
 
                   {/* Official Brand Logo */}
-                  <div className="flex justify-between items-center z-20 p-6">
-                    <img 
-                      src="/logo.png" 
-                      alt="Tapovan Spices" 
+                  <div className="flex justify-between items-center z-20 p-5">
+                    <img
+                      src="/logo.png"
+                      alt="Tapovan Spices"
                       className="h-7 w-auto object-contain"
                       style={{ filter: 'invert(1) brightness(1.8)' }}
                     />
-                    
-                    <span className="px-2.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-black/40 text-[#E2C47A] border border-[#C9A454]/30 backdrop-blur-sm">
+                    <span className="px-2.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-black/50 text-[#E2C47A] border border-[#C9A454]/30">
                       {p.badge}
                     </span>
                   </div>
@@ -152,11 +161,10 @@ export default function PackageSlider() {
                   <div className="flex-grow z-10" />
 
                   {/* Package Typography Caption Overlay */}
-                  <div className="text-center z-20 p-6">
+                  <div className="text-center z-20 p-5">
                     <h3 className="font-serif text-lg font-bold tracking-wider text-[#E2C47A] mb-0.5 drop-shadow-md">{p.name}</h3>
                     <p className="text-[8px] text-[#FAF7F2] tracking-[0.2em] uppercase font-sans mb-1 drop-shadow-sm">{p.subtitle}</p>
                     <p className="text-[7px] text-[#9A8B78] uppercase tracking-widest mb-3 drop-shadow-sm">FROM INDIA TO THE WORLD</p>
-                    
                     {/* Bottom spec bar */}
                     <div className="text-[7px] text-[#E2C47A] border-t border-[#C9A454]/30 pt-2.5 tracking-widest uppercase font-sans drop-shadow-sm">
                       {p.tagline}

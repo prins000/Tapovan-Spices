@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Compass, Sparkles, ShieldCheck } from 'lucide-react'
+import { Compass, Sparkles, ShieldCheck, Play } from 'lucide-react'
 
 const processSteps = [
   {
@@ -25,6 +26,7 @@ const processSteps = [
 
 export default function Process() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
+  const [videoPlaying, setVideoPlaying] = useState(false)
 
   return (
     <section id="process" className="py-24 md:py-32 bg-[#FAF7F2]">
@@ -60,19 +62,39 @@ export default function Process() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div 
+            <div
               className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200 bg-black aspect-video"
-              style={{ transform: 'translateZ(0)', WebkitTransform: 'translateZ(0)', isolation: 'isolate' }}
+              style={{ transform: 'translateZ(0)', WebkitTransform: 'translateZ(0)' }}
             >
-              <iframe 
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/ElojFZn6q3Q?playsinline=1&rel=0" 
-                title="Bühler Sortex Spice Seed Sorting" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
+              {videoPlaying ? (
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube-nocookie.com/embed/ElojFZn6q3Q?autoplay=1&playsinline=1&rel=0"
+                  title="Bühler Sortex Spice Seed Sorting"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              ) : (
+                <button
+                  onClick={() => setVideoPlaying(true)}
+                  className="absolute inset-0 w-full h-full flex items-center justify-center group cursor-pointer border-none p-0"
+                  aria-label="Play video"
+                  style={{ background: 'none' }}
+                >
+                  <img
+                    src="https://img.youtube.com/vi/ElojFZn6q3Q/maxresdefault.jpg"
+                    alt="Bühler Sortex Spice Seed Sorting"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    onError={e => { e.target.src = 'https://img.youtube.com/vi/ElojFZn6q3Q/hqdefault.jpg' }}
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+                  <div className="relative z-10 w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-200">
+                    <Play size={26} className="text-[#9C7A2E] ml-1" fill="#9C7A2E" />
+                  </div>
+                </button>
+              )}
             </div>
             
             {/* Tech Caption */}

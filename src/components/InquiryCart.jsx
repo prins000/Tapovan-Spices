@@ -127,6 +127,7 @@ export default function InquiryCart({ onBrowseSpices }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             onClick={() => setIsCartOpen(false)}
           />
 
@@ -136,7 +137,7 @@ export default function InquiryCart({ onBrowseSpices }) {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            transition={{ type: 'tween', duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             {/* Header */}
             <div className="p-6 border-b border-stone-200/40 flex items-center justify-between bg-white bg-opacity-95">
@@ -195,17 +196,12 @@ export default function InquiryCart({ onBrowseSpices }) {
                     <h3 className="text-xs font-bold uppercase tracking-widest text-[#9A8B78] border-b border-stone-200/20 pb-2">
                       Selected Products
                     </h3>
-                    <motion.div layout className="space-y-4">
-                      <AnimatePresence initial={false}>
-                        {cart.map((item) => (
-                          <motion.div
+                    <div className="space-y-4">
+                      {cart.map((item) => {
+                        return (
+                          <div
                             key={item.id}
-                            layout
-                            initial={{ opacity: 0, height: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, height: 'auto', scale: 1 }}
-                            exit={{ opacity: 0, height: 0, scale: 0.95, transition: { duration: 0.2 } }}
-                            transition={{ type: 'spring', stiffness: 500, damping: 45 }}
-                            className="bg-white p-4 rounded-2xl border border-stone-200/30 shadow-sm flex gap-4 relative group overflow-hidden"
+                            className="bg-white p-4 rounded-2xl border border-stone-200/30 shadow-sm flex gap-4 relative group"
                           >
                             <img
                               src={item.image}
@@ -286,10 +282,10 @@ export default function InquiryCart({ onBrowseSpices }) {
                                 />
                               </div>
                             </div>
-                          </motion.div>
-                        ))}
-                      </AnimatePresence>
-                    </motion.div>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
 
                   {/* Inquiry details */}
