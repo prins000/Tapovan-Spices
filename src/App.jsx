@@ -18,12 +18,15 @@ import Testimonials from './components/Testimonials'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { InquiryProvider } from './components/InquiryContext'
+import InquiryCart from './components/InquiryCart'
+import FloatingWhatsApp from './components/FloatingWhatsApp'
 
 function App() {
   const [activeProduct, setActiveProduct] = useState(null)
 
   return (
-    <>
+    <InquiryProvider>
       <Navbar onHomeClick={() => setActiveProduct(null)} />
       <AnimatePresence mode="wait">
         {activeProduct ? (
@@ -80,8 +83,23 @@ function App() {
         )}
       </AnimatePresence>
       <Footer />
-    </>
+      <InquiryCart onBrowseSpices={() => {
+        setActiveProduct(null);
+        setTimeout(() => {
+          const element = document.getElementById('products');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            // Exact pixel fallback
+            const yOffset = -90;
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }, 100);
+      }} />
+      <FloatingWhatsApp />
+    </InquiryProvider>
   )
 }
 
 export default App
+

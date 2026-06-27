@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ClipboardList } from 'lucide-react'
+import { useInquiry } from './InquiryContext'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -13,6 +14,9 @@ const links = [
 export default function Navbar({ onHomeClick }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const { cart, setIsCartOpen } = useInquiry()
+
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -84,16 +88,32 @@ export default function Navbar({ onHomeClick }) {
               ))}
             </nav>
 
-            <button onClick={() => go('#contact')} className="hidden md:block btn-primary text-xs">
-              Get Quote
-            </button>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className="relative p-2.5 rounded-full hover:bg-stone-100/60 transition-colors cursor-pointer border-none bg-transparent text-stone-700 flex items-center justify-center"
+                title="View Inquiry Cart"
+              >
+                <ClipboardList size={22} />
+                {totalItems > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 bg-[#9C7A2E] text-white text-[9px] font-bold w-4.5 h-4.5 rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+                    {totalItems}
+                  </span>
+                )}
+              </button>
 
-            <button className="md:hidden p-2 bg-transparent border-none cursor-pointer" onClick={() => setOpen(!open)} style={{ color: '#2A1F14' }}>
-              {open ? <X size={22} /> : <Menu size={22} />}
-            </button>
+              <button onClick={() => go('#contact')} className="hidden md:block btn-primary text-xs">
+                Get Quote
+              </button>
+
+              <button className="md:hidden p-2 bg-transparent border-none cursor-pointer" onClick={() => setOpen(!open)} style={{ color: '#2A1F14' }}>
+                {open ? <X size={22} /> : <Menu size={22} />}
+              </button>
+            </div>
           </div>
         </div>
       </motion.header>
+
 
       {/* Mobile */}
       <AnimatePresence>

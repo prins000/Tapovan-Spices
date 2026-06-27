@@ -11,12 +11,14 @@ const lenis = new Lenis({
   smooth: true,
   smoothTouch: false,
 })
+window.lenis = lenis
 
 function raf(time) {
   lenis.raf(time)
   requestAnimationFrame(raf)
 }
 requestAnimationFrame(raf)
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
