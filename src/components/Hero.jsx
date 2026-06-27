@@ -30,13 +30,13 @@ export default function Hero() {
       </div>
 
       {/* Two-column layout */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-24 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
         {/* ── LEFT: existing text content ── */}
-        <div>
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           {/* Eyebrow */}
           <motion.div
-            className="flex items-center gap-4 mb-8"
+            className="flex items-center justify-center lg:justify-start gap-4 mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -99,7 +99,7 @@ export default function Hero() {
 
           {/* Body copy */}
           <motion.p
-            className="text-base mb-10 max-w-md"
+            className="text-base mb-10 max-w-md mx-auto lg:mx-0"
             style={{
               color: '#F5EDD8',
               lineHeight: 1.8,
@@ -118,7 +118,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <motion.div
-            className="flex flex-col sm:flex-row items-start gap-4"
+            className="flex flex-col sm:flex-row items-center lg:items-start gap-4"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.75 }}
@@ -143,12 +143,12 @@ export default function Hero() {
 
         {/* ── RIGHT: Exporting To panel ── */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 0 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 0.4 }}
           className="flex justify-center lg:justify-end"
         >
-          <div className="w-full max-w-lg">
+          <div className="w-full max-w-xs sm:max-w-sm lg:max-w-lg">
             {/* Heading — no background, just text */}
             <div className="text-center mb-7">
               <div className="flex items-center justify-center gap-3 mb-1">
@@ -156,7 +156,7 @@ export default function Hero() {
                 <span
                   className="font-serif"
                   style={{
-                    fontSize: '1.5rem',
+                    fontSize: 'clamp(1rem, 3.5vw, 1.5rem)',
                     color: '#E2C47A',
                     letterSpacing: '0.14em',
                     textTransform: 'uppercase',
@@ -171,7 +171,7 @@ export default function Hero() {
             </div>
 
             {/* 3×2 country logo grid — no background */}
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-3 gap-4 lg:gap-8">
               {exportCountries.map((c, i) => (
                 <motion.div
                   key={c.name}
@@ -184,10 +184,10 @@ export default function Hero() {
                   <div
                     className="rounded-full overflow-hidden flex-shrink-0"
                     style={{
-                      width: '110px',
-                      height: '110px',
+                      width: 'clamp(68px, 10vw, 110px)',
+                      height: 'clamp(68px, 10vw, 110px)',
                       boxShadow: '0 6px 24px rgba(0,0,0,0.55)',
-                      border: '2.5px solid rgba(226,196,122,0.60)',
+                      border: '2px solid rgba(226,196,122,0.60)',
                     }}
                   >
                     <img
@@ -201,9 +201,9 @@ export default function Hero() {
                   <p
                     className="text-center font-sans"
                     style={{
-                      fontSize: '0.7rem',
+                      fontSize: 'clamp(0.52rem, 1.5vw, 0.7rem)',
                       fontWeight: 700,
-                      letterSpacing: '0.08em',
+                      letterSpacing: '0.07em',
                       textTransform: 'uppercase',
                       color: '#F5EDD8',
                       lineHeight: 1.4,
