@@ -1,4 +1,4 @@
-import { ArrowUp } from 'lucide-react'
+import { ArrowUp, Instagram } from 'lucide-react'
 
 const links = [
   { href: '#about', label: 'About Us' },
@@ -28,9 +28,29 @@ export default function Footer() {
             <p className="text-sm leading-relaxed mb-4" style={{ color: '#6B5B48' }}>
               Premium Indian spices and pulses exported worldwide since 2017. Pure Spices. Pure Goodness.
             </p>
-            <p className="italic text-sm" style={{ color: '#C9A454', fontFamily: 'Cormorant Garamond, serif' }}>
+            <p className="italic text-sm mb-4" style={{ color: '#C9A454', fontFamily: 'Cormorant Garamond, serif' }}>
               "From India to the World"
             </p>
+            <div className="flex gap-4">
+              <a
+                href="https://www.instagram.com/tapovan_spices/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300"
+                style={{ background: 'rgba(201,164,84,0.1)', color: '#C9A454' }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = '#C9A454';
+                  e.currentTarget.style.color = '#1A1F2E';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'rgba(201,164,84,0.1)';
+                  e.currentTarget.style.color = '#C9A454';
+                }}
+                title="Follow us on Instagram"
+              >
+                <Instagram size={16} />
+              </a>
+            </div>
           </div>
 
           {/* Links */}
@@ -58,7 +78,7 @@ export default function Footer() {
             <h4 className="font-serif font-bold text-sm mb-5" style={{ color: '#FAF7F2' }}>Contact</h4>
             <div className="space-y-3 text-sm" style={{ color: '#9A8B78' }}>
               <p>tapovanspice2401@gmail.com</p>
-              <p>+91 7048821883</p>
+              <p>+91 70488 11883</p>
               <p>tapovanspices.com</p>
               <p>India</p>
             </div>
