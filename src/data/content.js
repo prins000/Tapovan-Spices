@@ -176,9 +176,9 @@ export const products = [
   // SEEDS & OTHERS
   {
     id: 20,
-    name: 'Sesame Seed',
-    subtitle: 'Whole White Sesame Seeds',
-    nameHindi: 'Til',
+    name: 'Black Sesame Seed',
+    subtitle: 'Whole Black Sesame Seeds',
+    nameHindi: 'Kala Til',
     category: 'Seeds',
     description: 'Natural | Nutritious | High Quality',
     image: '/products/sesame-seed.jpeg',
@@ -200,6 +200,15 @@ export const products = [
     category: 'Seeds',
     description: 'Natural | Dietary Fiber | Premium Quality',
     image: '/products/psyllium-husk-isabgol-whole-husk.jpeg',
+  },
+  {
+    id: 23,
+    name: 'White Sesame Seeds',
+    subtitle: 'Unpolished White Sesame',
+    nameHindi: 'Safed Til',
+    category: 'Seeds',
+    description: 'Premium | Rich Flavor | Export Quality',
+    image: '/products/white sasame.jpeg',
   },
 ];
 

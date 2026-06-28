@@ -42,7 +42,7 @@ const getSpecs = (p) => {
       purity: '99% Cleaned & De-stoned',
       aroma: 'Earthy, Sweet & Pure',
       grade: 'Premium Cleaned Grade',
-      sensory: { intensity: 85, purity: 99.0, freshness: 97 }
+      sensory: { intensity: 85, purity: 99.9, freshness: 97 }
     }
   }
 }
