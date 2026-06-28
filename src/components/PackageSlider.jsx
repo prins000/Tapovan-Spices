@@ -2,55 +2,26 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 const packageProducts = [
-  {
-    name: 'CAROM SEEDS',
-    subtitle: 'AJWAIN',
-    tagline: 'Aromatic | Medicinal | 100% Natural',
-    image: '/products/carom-seeds-ajwain.jpeg',
-    badge: 'Premium Grade'
-  },
-  {
-    name: 'CUMIN SEED',
-    subtitle: 'WHOLE CUMIN SEEDS',
-    tagline: 'Rich Aroma | Premium Quality | 100% Natural',
-    image: '/products/cumin-seed.jpeg',
-    badge: '99.5% Purity'
-  },
-  {
-    name: 'TURMERIC',
-    subtitle: 'SELECTED TURMERIC FINGERS',
-    tagline: 'Pure | Natural | Rich in Curcumin',
-    image: '/products/turmeric.jpeg',
-    badge: 'High Curcumin'
-  },
-  {
-    name: 'CHILLI POWDER',
-    subtitle: 'RED CHILLI POWDER',
-    tagline: 'Bold Heat | Vibrant Color | Pure & Fresh',
-    image: '/products/chilli-powder.jpeg',
-    badge: '100% Natural'
-  },
-  {
-    name: 'BIG MUSTARD SEED',
-    subtitle: 'WHOLE BIG MUSTARD SEEDS',
-    tagline: 'High Quality | Strong Aroma | 100% Natural',
-    image: '/products/big-mustard-seed.jpeg',
-    badge: 'Machine Cleaned'
-  },
-  {
-    name: 'CORIANDER SEED',
-    subtitle: 'WHOLE CORIANDER SEEDS',
-    tagline: 'Fresh | Cleaned | Superior Quality',
-    image: '/products/coriander-whole-seeds.jpeg',
-    badge: 'Sortex Quality'
-  },
-  {
-    name: 'FENNEL SEED',
-    subtitle: 'ANISEED / SAUNF',
-    tagline: 'Sweet Aroma | Digestive | Premium Quality',
-    image: '/products/fennel-seed.jpeg',
-    badge: 'Aromatic Grade'
-  }
+  { id: 1,  image: '/slidebar/c1.jpeg' },
+  { id: 2,  image: '/slidebar/c2.jpeg' },
+  { id: 3,  image: '/slidebar/c3.jpeg' },
+  { id: 5,  image: '/slidebar/c5.jpeg' },
+  { id: 6,  image: '/slidebar/c6.jpeg' },
+  { id: 7,  image: '/slidebar/c7.jpeg' },
+  { id: 8,  image: '/slidebar/c8.jpeg' },
+  { id: 9,  image: '/slidebar/c9.jpeg' },
+  { id: 10, image: '/slidebar/c10.jpeg' },
+  { id: 11, image: '/slidebar/c11.jpeg' },
+  { id: 12, image: '/slidebar/c12.jpeg' },
+  { id: 13, image: '/slidebar/c13.jpeg' },
+  { id: 14, image: '/slidebar/c14.jpeg' },
+  { id: 15, image: '/slidebar/c15.jpeg' },
+  { id: 16, image: '/slidebar/c16.jpeg' },
+  { id: 17, image: '/slidebar/c17.jpeg' },
+  { id: 18, image: '/slidebar/c18.jpeg' },
+  { id: 19, image: '/slidebar/c19.jpeg' },
+  { id: 20, image: '/slidebar/c20.jpeg' },
+  
 ]
 
 function ProductCard({ p }) {
@@ -59,10 +30,9 @@ function ProductCard({ p }) {
       className="flex-shrink-0 rounded-3xl overflow-hidden"
       style={{ aspectRatio: '1 / 1.4', width: '240px' }}
     >
-      {/* Full-bleed Product Image — no overlays, no text */}
       <img
         src={p.image}
-        alt={p.name}
+        alt={`Product ${p.id}`}
         className="w-full h-full object-cover"
         loading="lazy"
       />
@@ -111,10 +81,10 @@ export default function PackageSlider() {
         {/* marquee-track contains TWO copies of the list so it loops seamlessly */}
         <div className="marquee-track" style={{ gap: '16px' }}>
           {packageProducts.map((p) => (
-            <ProductCard key={`a-${p.name}`} p={p} />
+            <ProductCard key={`a-${p.id}`} p={p} />
           ))}
           {packageProducts.map((p) => (
-            <ProductCard key={`b-${p.name}`} p={p} />
+            <ProductCard key={`b-${p.id}`} p={p} />
           ))}
         </div>
       </div>
