@@ -2,12 +2,12 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 const exportCountries = [
-  { logo: '/country-logos/usa.png',          name: 'USA' },
-  { logo: '/country-logos/europe.jpg',       name: 'European Countries' },
-  { logo: '/country-logos/gulf.jpg',         name: 'Gulf Countries' },
-  { logo: '/country-logos/latin-america.jpg',name: 'Latin America' },
-  { logo: '/country-logos/malaysia.jpg',     name: 'Malaysia' },
-  { logo: '/country-logos/vietnam.jpg',      name: 'Vietnam' },
+  { logo: '/country-logos/usa.png',          name: 'USA',                zoom: 1 },
+  { logo: '/country-logos/europe.jpg',       name: 'European Countries', zoom: 1.18 },
+  { logo: '/country-logos/gulf.jpg',         name: 'Gulf Countries',     zoom: 1 },
+  { logo: '/country-logos/latin-america.jpg',name: 'Latin America',      zoom: 1.18 },
+  { logo: '/country-logos/malaysia.jpg',     name: 'Malaysia',           zoom: 1.18 },
+  { logo: '/country-logos/vietnam.jpg',      name: 'Vietnam',            zoom: 1.18 },
 ]
 
 export default function Hero() {
@@ -194,6 +194,7 @@ export default function Hero() {
                       src={c.logo}
                       alt={c.name}
                       className="w-full h-full object-cover"
+                      style={{ transform: `scale(${c.zoom})` }}
                       loading="lazy"
                     />
                   </div>
